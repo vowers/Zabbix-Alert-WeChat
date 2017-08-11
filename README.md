@@ -1,5 +1,6 @@
 # Zabbix-Alert-WeChat zabbix微信报警
-## 作者:火星小刘 邮箱:xtlyk@163.com   
+## 原作者xtlyk@163.com  我修改了部分bug 
+## 有问题可以联系我vowers@126.com
 
 ### 2017-08-08
 1. 全部重写，代码更简洁易读
