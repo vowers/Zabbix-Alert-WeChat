@@ -36,12 +36,24 @@ if __name__ == '__main__':
     User = sys.argv[1]                                                              # zabbix传过来的第一个参数
     Subject = sys.argv[2]                                                           # zabbix传过来的第二个参数
     Content = sys.argv[3]                                                           # zabbix传过来的第三个参数
+    if User == '1':#zabbix收件人  自定义按需求修改
+        User = User
+        Partid = "2"             # 部门ID
+        Agentid = "2"            # 企业号中的应用id。
+        Secret = "xx"            # 应用设置页面查看
+    elif User == '2':
+        User = User
+        Partid = "3"
+        Agentid = "xxx"
+        Secret = "xx"
+    else:
+        User = "@all"
+        Partid = "2"                                                                     
+        Agentid = "xx"   
+        Secret = "xx"    
+    Corpid = "xxxxxxx"          # CorpID是企业号的标识
 
-    Corpid = "xxxxxxxxxxxx"                                                               # CorpID是企业号的标识
-    Secret = "xxxxxxxxxxxxxx"                                                             # Secret是管理组凭证密钥
-    #Tagid = "1"                                                                     
-    Agentid = "1"                                                                   # 应用ID
-    Partid = "1"                                                                    # 通讯录标签ID
     Token = GetToken(Corpid, Secret)
     Status = SendMessage(Token,User,Partid,Agentid,Subject,Content)
+
     print Status

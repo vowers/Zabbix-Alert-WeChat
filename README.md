@@ -1,6 +1,13 @@
 # Zabbix-Alert-WeChat zabbix微信报警
-## 原作者xtlyk@163.com  我修改了部分bug 
+## 原作者@X-Mars 由于由少许BUG我修改了部分并增加了部分功能 
+
 ## 有问题可以联系我vowers@126.com
+
+### 2017-08-16
+
+修服务了原作者不能按部门发送的BUG
+
+添加了可以向多个部门多个应用推送，具体自行在下方if else内按需求自行添加或修改配置，由zabbix中推送人为标识来进行区分
 
 ### 2017-08-08
 1. 全部重写，代码更简洁易读
@@ -23,37 +30,37 @@ cd requests-2.18.3
 python setup.py build
 python setup.py install
 ```
-  
+
 #### 下载安装脚本  
 ```bash  
-git clone https://github.com/X-Mars/Zabbix-Alert-WeChat.git  
+git clone https://github.com/vowers/Zabbix-Alert-WeChat.git
 cp Zabbix-Alert-WeChat/wechat.py /etc/zabbix/alertscripts  
 chmod +x /etc/zabbix/alertscripts/wechat.py  
 ```
-  
+
 ### 微信企业号设置  
 #### 通讯录设置  
 登陆微信企业号控制台  
 点击左侧“通讯录”，新增部门（技术部）与子部门（运维部），并添加用户  
 点击（运维部）后方的三角，修改部门，记录**部门ID**  
-  
+
 #### 创建应用  
 点击左侧“应用中心”，新建消息型应用，应用名称为“zabbix报警”  
 “应用可见范围”，添加刚刚新建的子部门（运维部）  
 点击“zabbix报警”，记录**应用ID**
-  
+
 #### 应用权限设置  
 点击左侧“设置”，权限管理，新建普通管理组，名称填写“zabbix报警组”  
 点击修改“通讯录权限”，勾选（技术部）后方的管理  
 点击修改“应用权限”，勾选刚刚创建的“zabbix报警”  
 点击刚刚创建的“zabbix报警组”，记录左侧的**CorpID与Secret**
-  
+
 #### 收集微信相关信息
 1. 记录**应用ID**
 2. 记录**CorpID与Secret**
 3. 记录**子部门（运维部）ID**
-  
-  
+
+   ​
 ### zabbix设置
 1. 添加示警媒介  
 #### 管理-->示警媒介  
